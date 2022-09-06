@@ -22,3 +22,7 @@ application {
 jar {
     manifest.attributes['Main-Class'] = 'hexlet.code.App'
 }
+
+run {
+    standardInput = System.in
+}
