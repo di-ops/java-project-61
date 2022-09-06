@@ -1,8 +1,5 @@
 package hexlet.code;
 
-
-import java.util.Scanner;
-
 import static hexlet.code.Cli.askName;
 
 public class App {
