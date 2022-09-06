@@ -1,10 +1,12 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group = 'hexlet.code'
-version = '0.0.1-SNAPSHOT'
+version = '1'
 sourceCompatibility = '17'
+targetCompatibility = '17'
 
 repositories {
     mavenCentral()
@@ -13,3 +15,10 @@ repositories {
 dependencies {
 }
 
+application {
+    mainClass = 'hexlet.code.App'
+}
+
+jar {
+    manifest.attributes['Main-Class'] = 'hexlet.code.App'
+}
