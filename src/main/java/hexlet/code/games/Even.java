@@ -13,7 +13,7 @@ public class Even extends AbstractGame {
      */
     @Override
     public void play() {
-        askName();
+        greet();
         int counter = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
