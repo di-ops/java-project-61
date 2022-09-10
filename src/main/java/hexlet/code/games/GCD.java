@@ -39,7 +39,7 @@ public class GCD implements Game {
     }
 
     /**
-     * Even game.
+     * GCD game.
      */
     @Override
     public void play() {

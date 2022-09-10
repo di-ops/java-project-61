@@ -32,7 +32,7 @@ public class Calc implements Game {
     }
 
     /**
-     * Even game.
+     * Calc game.
      */
     @Override
     public void play() {
