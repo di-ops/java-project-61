@@ -10,11 +10,11 @@ import java.util.function.Supplier;
 
 public class Progression implements Game {
 
-    static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
+    static final String DESCRIPTION = "What number is missing in the progression?";
     static final int BORDER_FOR_RANDOM_START = 30;
     static final int BORDER_FOR_RANDOM_STEP = 10;
     static final int VALUES_IN_PROGRESSION = 10;
-    static final Supplier<Pair<String, String>> GCD = () -> {
+    static final Supplier<Pair<String, String>> PROGRESSION = () -> {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         String correctAnswer = "";
@@ -26,7 +26,7 @@ public class Progression implements Game {
             int temp = startValue + (i * step);
             if (i == randomIndex) {
                 correctAnswer = String.valueOf(temp);
-                stringBuilder.append(" .. ");
+                stringBuilder.append(".. ");
             } else {
                 stringBuilder.append(temp).append(" ");
             }
@@ -47,6 +47,6 @@ public class Progression implements Game {
      */
     @Override
     public void play() {
-        engine.start(DESCRIPTION, GCD);
+        engine.start(DESCRIPTION, PROGRESSION);
     }
 }

@@ -23,6 +23,9 @@ application {
 
 jar {
     manifest.attributes['Main-Class'] = 'hexlet.code.App'
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 run {
