@@ -34,8 +34,8 @@ public class GCD implements Game {
 
     private final Engine engine;
 
-    public GCD(Engine engine) {
-        this.engine = engine;
+    public GCD(Engine e) {
+        this.engine = e;
     }
 
     /**

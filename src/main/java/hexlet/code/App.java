@@ -3,8 +3,8 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
-
 import java.util.Scanner;
 
 import static hexlet.code.Cli.askName;
@@ -20,7 +20,7 @@ public class App {
     private static void showMenu() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println(
+            System.out.print(
                     """
                             Please enter the game number and press Enter.
                             1 - Greet
@@ -28,7 +28,9 @@ public class App {
                             3 - Calc
                             4 - GCD
                             5 - Progression
-                            0 - Exit""");
+                            6 - Prime
+                            0 - Exit
+                            Your choice:    """);
             String input = scanner.next();
             switch (input) {
                 case "0" -> System.exit(0);
@@ -37,6 +39,7 @@ public class App {
                 case "3" -> new Calc(ENGINE).play();
                 case "4" -> new GCD(ENGINE).play();
                 case "5" -> new Progression(ENGINE).play();
+                case "6" -> new Prime(ENGINE).play();
                 default -> System.out.println("Select correct item");
             }
         }

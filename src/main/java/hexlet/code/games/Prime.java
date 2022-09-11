@@ -8,14 +8,14 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.function.Supplier;
 
-public class Even implements Game {
+public class Prime implements Game {
 
-    static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     static final int BORDER_FOR_RANDOM_INT = 100;
-    static final Supplier<Pair<String, String>> EVEN = () -> {
+    static final Supplier<Pair<String, String>> PRIME = () -> {
         Scanner scanner = new Scanner(System.in);
         int randomInt = new Random().nextInt(BORDER_FOR_RANDOM_INT);
-        String correctAnswer = (randomInt % 2 == 0) ? "yes" : "no";
+        String correctAnswer = isPrime(randomInt) ? "yes" : "no";
         System.out.print("Question: " + randomInt + "\nYour answer: ");
         String answer = scanner.next();
         return new MutablePair<>(correctAnswer, answer);
@@ -23,15 +23,24 @@ public class Even implements Game {
 
     private final Engine engine;
 
-    public Even(Engine e) {
+    public Prime(Engine e) {
         this.engine = e;
     }
 
+    private static boolean isPrime(int randomInt) {
+        for (int i = randomInt - 1; i > 1; i--) {
+            if (randomInt % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     /**
-     * Even game.
+     * Prime game.
      */
     @Override
     public void play() {
-        engine.start(DESCRIPTION, EVEN);
+        engine.start(DESCRIPTION, PRIME);
     }
 }

@@ -34,8 +34,8 @@ public class Engine {
                         + "'" + correctAnswer + "'.\nLet's try again, " + name + "!");
                 break;
             }
-
         }
+        System.exit(0);
     }
 
     private void greet() {

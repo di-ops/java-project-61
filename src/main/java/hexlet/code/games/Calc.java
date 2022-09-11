@@ -27,8 +27,8 @@ public class Calc implements Game {
 
     private final Engine engine;
 
-    public Calc(Engine engine) {
-        this.engine = engine;
+    public Calc(Engine e) {
+        this.engine = e;
     }
 
     /**
