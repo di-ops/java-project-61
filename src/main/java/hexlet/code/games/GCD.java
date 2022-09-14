@@ -5,7 +5,6 @@ import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.Random;
-import java.util.Scanner;
 import java.util.function.Supplier;
 
 public class GCD implements Game {
@@ -13,14 +12,13 @@ public class GCD implements Game {
     static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
     static final int BORDER_FOR_RANDOM_INT_1 = 100;
     static final int BORDER_FOR_RANDOM_INT_2 = 20;
-    static final Supplier<Pair<String, String>> GCD = () -> {
-        Scanner scanner = new Scanner(System.in);
-        int val1 = new Random().nextInt(BORDER_FOR_RANDOM_INT_1);
-        int val2 = new Random().nextInt(BORDER_FOR_RANDOM_INT_2);
-        int correctAnswer = calculateGCD(val1, val2);
-        System.out.print("Question: " + val1 + " " + val2 + "\nYour answer: ");
-        String answer = scanner.next();
-        return new MutablePair<>(String.valueOf(correctAnswer), answer);
+    static final Supplier<Pair<String, String>> GENERATED_GAME_DATA = () -> {
+        Random random = new Random();
+        int val1 = random.nextInt(BORDER_FOR_RANDOM_INT_1);
+        int val2 = random.nextInt(BORDER_FOR_RANDOM_INT_2);
+        String correctAnswer = String.valueOf(calculateGCD(val1, val2));
+        String question =  val1 + " " + val2;
+        return new MutablePair<>(correctAnswer, question);
     };
 
     private static int calculateGCD(int val1, int val2) {
@@ -43,6 +41,6 @@ public class GCD implements Game {
      */
     @Override
     public void play() {
-        engine.start(DESCRIPTION, GCD);
+        engine.start(DESCRIPTION, GENERATED_GAME_DATA);
     }
 }

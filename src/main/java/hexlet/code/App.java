@@ -30,7 +30,7 @@ public class App {
                             5 - Progression
                             6 - Prime
                             0 - Exit
-                            Your choice:    """);
+                            Your choice:\040""");
             String input = scanner.next();
             switch (input) {
                 case "0" -> System.exit(0);

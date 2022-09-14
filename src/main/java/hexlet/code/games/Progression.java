@@ -5,7 +5,6 @@ import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.Random;
-import java.util.Scanner;
 import java.util.function.Supplier;
 
 public class Progression implements Game {
@@ -14,8 +13,7 @@ public class Progression implements Game {
     static final int BORDER_FOR_RANDOM_START = 30;
     static final int BORDER_FOR_RANDOM_STEP = 10;
     static final int VALUES_IN_PROGRESSION = 10;
-    static final Supplier<Pair<String, String>> PROGRESSION = () -> {
-        Scanner scanner = new Scanner(System.in);
+    static final Supplier<Pair<String, String>> GENERATED_GAME_DATA = () -> {
         Random random = new Random();
         String correctAnswer = "";
         int startValue = random.nextInt(BORDER_FOR_RANDOM_START);
@@ -31,9 +29,7 @@ public class Progression implements Game {
                 stringBuilder.append(temp).append(" ");
             }
         }
-        System.out.print("Question: " + stringBuilder + "\nYour answer: ");
-        String answer = scanner.next();
-        return new MutablePair<>(correctAnswer, answer);
+        return new MutablePair<>(correctAnswer, stringBuilder.toString());
     };
 
     private final Engine engine;
@@ -47,6 +43,6 @@ public class Progression implements Game {
      */
     @Override
     public void play() {
-        engine.start(DESCRIPTION, PROGRESSION);
+        engine.start(DESCRIPTION, GENERATED_GAME_DATA);
     }
 }

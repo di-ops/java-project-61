@@ -13,16 +13,19 @@ public class Engine {
     /**
      *
      * @param description describe rules of game
-     * @param game contains logic of game
+     * @param gameData contains correct answer and question
      */
-    public void start(String description, Supplier<Pair<String, String>> game) {
+    public void start(String description, Supplier<Pair<String, String>> gameData) {
         greet();
         int counter = 0;
         System.out.println(description);
         while (counter < ROUNDS) {
-            Pair<String, String> answers = game.get();
-            String correctAnswer = answers.getLeft();
-            String userAnswer = answers.getRight();
+            Pair<String, String> logic = gameData.get();
+            String correctAnswer = logic.getLeft();
+            String question = logic.getRight();
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Question: " + question + "\nYour answer: ");
+            String userAnswer = scanner.next();
             if (userAnswer.equalsIgnoreCase(correctAnswer)) {
                 counter++;
                 System.out.println("Correct!");
